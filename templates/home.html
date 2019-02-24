@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Home</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">  -->
+	<!-- <link rel="stylesheet" media="screen" href = "{{ url_for('static', filename='bootstrap.min.css') }}"> -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<style>
+body {background-color: #5F9EA0;}
+h1   {color: white;}
+h2   {color:white}
+
+</style>
+
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	<!--<link rel="stylesheet" media="screen" href="../static/css/bootstrap.min.css"> -->
+</head>
+<body>
+
+	<header  >
+    	<h1> RO M x Python </h1>
+    	<img src= "/static/rom.jpg "width="400">
+    	
+    	<hr>
+		<h2>How many EXP do we gain in one hour?</h2>
+		
+		<h2>Fill in your adventure</h2>
+
+		<br>
+
+
+
+
+<!-- <input id = "csrf_token" name = "csrf_token" type = "hidden" />-->
+<form action = "/result" method = "POST" class="pure-form" >
+<h3 for = "name">Monster name</h3>
+<input  type = "text" value = "Monster name" name = "Monster name" />
+<br><br><br>
+<h3 for = "name">Number of killed monsters in 10 seconds</h3>
+<h4>จับเวลาใน10 วินาทีเราเก็บ monster ที่จะฟาร์มได้กี่ตัว</h4>
+<input  type = "number" value = "5" name = "killing in 13 sec."/>
+<br>
+<br><br>
+<h4>ใครมีของกาชา ได้ EXP เพิ่มก็ใส่ข้อมูลเข้าไป</h4>
+<h3 for = "name">Percent of Extra Base EXP</h3>
+<input type = "number" value = "0"  name = "% ExtraEXPb" />
+<h3 for = "name">Percent of Extra job EXP</h3>
+<input type = "number" value = "0"  name = "% ExtraEXPj" />
+<br><br>
+	<label class="control checkbox">
+  <input type="checkbox" name = "Lighting Effect">
+  <span class="control-indicator"></span>
+  Lightning Effect
+</label>
+
+<br>
+<input type="submit" value="Submit" class="pure-button pure-button-primary">
+</form>
+	</div>
+<br>
+<br>
+<h3> just for recheck monster name </h3>
+<h5> จริงๆควรเอาfunction นี้ใช้Searchเลย แต่อยากลองทำ searchแบบส่วนหนึ่งของคำ และ ใช้if else เวลาsearch ไม่เจอ</h5>
+	</header>
+<select name= namelist>
+    {% for monstername in monstername %}
+    <option value= "{{monstername}}" SELECTED>{{monstername}}</option>"
+    {% endfor %}
+</select>
+
+</select>	
+	
+
+</body>
+</html>

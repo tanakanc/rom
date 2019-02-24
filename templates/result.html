@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+ <style>
+body {background-color: #5F9EA0;}
+h1   {color: white;}
+h2   {color:white}
+
+</style>
+<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+   <body>
+
+          <h1>Your Selected Adventure</h1>
+{%if length_search == 0 %}
+ <h1>No this monster in our database</h1>
+{% else %}
+
+         <table border = 1 class="w3-table w3-bordered w3-striped">     
+         {% for key, value in result.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+   <hr>   
+ <h1>Monster Attribute</h1>     
+ <table border = 1 class="w3-table w3-bordered w3-striped" >
+  <tr>
+    <th>{{serchresult1.index.values[0]}}</th>
+    <th>{{serchresult1.index.values[1]}}</th> 
+    <th>{{serchresult1.index.values[2]}}</th>
+    <th>{{serchresult1.index.values[3]}}</th>
+    <th>{{serchresult1.index.values[4]}}</th>
+     <th>{{serchresult1.index.values[5]}}</th>
+  </tr>
+  <tr>
+    <td>{{serchresult1[0]}}</td>
+    <td>{{serchresult1[1]}}</td> 
+    <td>{{serchresult1[2]}}</td>
+    <td>{{serchresult1[3]}}</td>
+    <td>{{serchresult1[4]}}</td>
+    <td>{{serchresult1[5]}}</td>
+  </tr>
+ <br>
+ </table>
+      {% set numberQ = result['killing in 13 sec.'] | int %}
+      {% set extraexpb = result['% ExtraEXPb'] | int %}
+      {% set extraexpj = result['% ExtraEXPj'] | int %}
+      {% set base = serchresult1[4] | int %}
+      {% set job = serchresult1[5] | int %}
+      {%if result['Lighting Effect'] =='on' %}
+          <h1>Base EXP gain:{{ base*numberQ*(1+extraexpb/100)*2*360 }}</h1>
+          <h1>Job EXP gain:{{ job*numberQ*(1+extraexpj/100)*2*360 }}</h1>
+          <h1>Lighting Effect: {{ result['Lighting Effect'] }}</h1>
+      {% else %}
+          <h1>Base EXP gain:{{ base*numberQ*(1+extraexpb/100)*360 }}</h1>
+          <h1>Job EXP gain:{{ job*numberQ*(1+extraexpj/100)*360 }}</h1>    
+         <h1>{{ result['Lighting Effect'] }}</h1>
+      {% endif %}
+{% endif %}
+
+<form action = "/home">
+    <input type="submit" value="Trail again" />
+</form>
+<a 
+</body>
+</html>
